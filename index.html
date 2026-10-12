@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLK  | Unisex Fitness Zone</title>
+  <meta name="description" content="Austin's premier high-performance training hub. Powerlifting, Olympic lifting, Zone 5 MetCon, and contrast cold plunge recovery in downtown ATX.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..900&display=swap" rel="stylesheet">
+
+  <!-- Google Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#051424',
+            surfaceLow: '#0d1c2d',
+            surfaceContainer: '#122131',
+            surfaceHigh: '#1c2b3c',
+            surfaceHighest: '#273647',
+            electricLime: '#C3F400',
+            limeText: '#161E00',
+            cyanPulse: '#00EEFC',
+            crimsonPeak: '#FF3366',
+            bodyText: '#D4E4FA',
+            slateSubtle: '#94A3B8'
+          },
+          fontFamily: {
+            bebas: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"DM Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-[#051424] text-[#D4E4FA] font-sans antialiased selection:bg-[#C3F400] selection:text-[#161E00] overflow-x-hidden">
+
+  <!-- STICKY HEADER -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 py-5">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <span class="w-2.5 h-8 bg-[#C3F400] skew-x-[-18deg] group-hover:scale-y-110 transition-transform"></span>
+        <span class="font-bebas text-3xl md:text-4xl tracking-wider text-white">TLK</span>
+        <span class="bg-[#C3F400]/10 border border-[#C3F400]/30 text-[#C3F400] font-bold text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full">ATX</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1 bg-[#0d1c2d]/80 p-1.5 rounded-full border border-white/5">
+        <a href="#hero" class="nav-link text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full text-[#C3F400] bg-[#122131] transition-all">Home</a>
+        <a href="#about" class="nav-link text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full text-[#D4E4FA] hover:text-[#C3F400] transition-all">Facility</a>
+        <a href="#modalities" class="nav-link text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full text-[#D4E4FA] hover:text-[#C3F400] transition-all">Programs</a>
+        <a href="#coaches" class="nav-link text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full text-[#D4E4FA] hover:text-[#C3F400] transition-all">Coaches</a>
+        <a href="#pricing" class="nav-link text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full text-[#D4E4FA] hover:text-[#C3F400] transition-all">Pricing</a>
+        <a href="#schedule" class="nav-link text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full text-[#D4E4FA] hover:text-[#C3F400] transition-all">Schedule</a>
+        <a href="#calculator" class="nav-link text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full text-[#D4E4FA] hover:text-[#C3F400] transition-all">Calculate BMI</a>
+        <a href="#contact" class="nav-link text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full text-[#D4E4FA] hover:text-[#C3F400] transition-all">Contact</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="#contact" class="btn-primary-glow bg-[#C3F400] text-[#161E00] font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-lg flex items-center gap-2">
+          <span>Join Now</span>
+          <span class="material-symbols-outlined text-sm">bolt</span>
+        </a>
+        <div class="w-10 h-10 rounded-full bg-[#1c2b3c] border border-white/10 flex items-center justify-center text-[#C3F400] font-bold text-xs">
+          TLK
+        </div>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden text-white p-2 focus:outline-none" aria-label="Toggle Navigation">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#051424] border-b border-white/10 px-6 py-6 space-y-4">
+      <a href="#hero" class="block text-sm font-bold uppercase tracking-wider text-[#C3F400]">Home</a>
+      <a href="#about" class="block text-sm font-bold uppercase tracking-wider text-[#D4E4FA]">Facility</a>
+      <a href="#modalities" class="block text-sm font-bold uppercase tracking-wider text-[#D4E4FA]">Programs</a>
+      <a href="#coaches" class="block text-sm font-bold uppercase tracking-wider text-[#D4E4FA]">Coaches</a>
+      <a href="#pricing" class="block text-sm font-bold uppercase tracking-wider text-[#D4E4FA]">Pricing</a>
+      <a href="#schedule" class="block text-sm font-bold uppercase tracking-wider text-[#D4E4FA]">Schedule</a>
+      <a href="#calculator" class="block text-sm font-bold uppercase tracking-wider text-[#D4E4FA]">Calculate BMI</a>
+      <a href="#contact" class="block text-sm font-bold uppercase tracking-wider text-[#D4E4FA]">Contact</a>
+      <a href="#contact" class="block w-full text-center bg-[#C3F400] text-[#161E00] font-extrabold text-xs uppercase tracking-wider py-3.5 rounded-lg">
+        Join Now
+      </a>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <section id="hero" class="relative min-h-[920px] pt-32 pb-20 flex flex-col justify-between overflow-hidden">
+    <!-- Hero Background Image & Gradient Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=2000&auto=format&fit=crop" alt="Barbell athletes training in elite dark gym" class="w-full h-full object-cover object-center opacity-30">
+      <div class="absolute inset-0 hero-vignette"></div>
+    </div>
+
+    <div class="relative z-10 max-w-[1360px] mx-auto px-5 md:px-12 w-full my-auto">
+      <div class="max-w-3xl space-y-6">
+        
+        <!-- Live Pulsing Badge -->
+        <div class="inline-flex items-center gap-3 bg-[#C3F400]/10 border border-[#C3F400]/30 px-4 py-2 rounded-full">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#C3F400] pulsing-dot"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#C3F400]">TLK • Unisex Fitness Zone</span>
+        </div>
+
+        <!-- Giant Headline -->
+        <h1 class="font-bebas text-6xl sm:text-7xl lg:text-[84px] leading-[0.9] tracking-wider uppercase text-white">
+          FORGE YOUR <br>
+          <span class="text-[#C3F400] drop-shadow-[0_0_35px_rgba(195,244,0,0.35)]">STRONGEST SELF</span>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="text-base sm:text-lg md:text-xl text-[#D4E4FA]/90 font-normal leading-relaxed max-w-2xl">
+          25,000 sq ft of industrial-grade strength gear, CSCS-certified coaching, Olympic weightlifting platforms, and contrast cold plunge recovery in downtown Austin.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+          <a href="#contact" class="btn-primary-glow bg-[#C3F400] text-[#161E00] font-black text-sm uppercase tracking-wider px-8 py-4 rounded-lg flex items-center justify-center gap-2">
+            <span>⚡ Start 7-Day Free Trial</span>
+          </a>
+          <a href="#pricing" class="glass-panel text-white hover:border-[#C3F400] font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-lg flex items-center justify-center gap-2 transition-all">
+            <span>View Membership Plans</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Glass Stats Bar -->
+    <div id="stats-bar" class="relative z-10 max-w-[1360px] mx-auto px-5 md:px-12 w-full mt-12">
+      <div class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 border border-white/10">
+        <div class="space-y-1">
+          <div class="font-bebas text-4xl sm:text-5xl text-[#C3F400] tracking-wide flex items-center">
+            <span class="stat-counter" data-target="2500">0</span>+
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#94A3B8]">Active ATX Athletes</p>
+        </div>
+
+        <div class="space-y-1 border-l border-white/10 pl-6">
+          <div class="font-bebas text-4xl sm:text-5xl text-[#00EEFC] tracking-wide flex items-center">
+            <span class="stat-counter" data-target="35">0</span>+
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#94A3B8]">CSCS Olympic Coaches</p>
+        </div>
+
+        <div class="space-y-1 border-l border-white/10 pl-6">
+          <div class="font-bebas text-4xl sm:text-5xl text-white tracking-wide flex items-center">
+            <span class="stat-counter" data-target="25000">0</span>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#94A3B8]">SQ FT Industrial Floor</p>
+        </div>
+
+        <div class="space-y-1 border-l border-white/10 pl-6">
+          <div class="font-bebas text-4xl sm:text-5xl text-[#C3F400] tracking-wide flex items-center">
+            <span class="stat-counter" data-target="100">0</span>%
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#94A3B8]">Outcome Guarantee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT AND FACILITY (SPLIT BENTO) -->
+  <section id="about" class="py-24 bg-[#051424] relative">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Brand Story (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#00EEFC] bg-[#00EEFC]/10 px-3.5 py-1.5 rounded-full border border-[#00EEFC]/20">
+            THE ATX STANDARD
+          </span>
+          
+          <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide leading-tight">
+            BUILT FOR THOSE WHO DISDAIN MEDIOCRITY
+          </h2>
+
+          <p class="text-[#D4E4FA]/80 text-base leading-relaxed">
+            IronPulse ATX isn’t a social club with dumbbells. It is an unapologetic, biomechanically superior strength sanctuary in the heart of downtown Austin. Engineered for competitive lifters, hybrid endurance athletes, and high-performers.
+          </p>
+
+          <ul class="space-y-3 pt-2">
+            <li class="flex items-center gap-3 text-sm text-white font-medium">
+              <span class="material-symbols-outlined text-[#C3F400]">check_circle</span>
+              <span>Calibrated Eleiko competition plates & Texas Power Bars</span>
+            </li>
+            <li class="flex items-center gap-3 text-sm text-white font-medium">
+              <span class="material-symbols-outlined text-[#C3F400]">check_circle</span>
+              <span>Custom sprint turf tracks & Woodway curve treadmills</span>
+            </li>
+            <li class="flex items-center gap-3 text-sm text-white font-medium">
+              <span class="material-symbols-outlined text-[#C3F400]">check_circle</span>
+              <span>Dedicated contrast recovery suite with 38°F plunges</span>
+            </li>
+            <li class="flex items-center gap-3 text-sm text-white font-medium">
+              <span class="material-symbols-outlined text-[#C3F400]">check_circle</span>
+              <span>DEXA body composition & biometric telemetry</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Facility Imagery (7 cols) -->
+        <div class="lg:col-span-7 relative">
+          <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-[#122131]">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1400&auto=format&fit=crop" alt="IronPulse Facility Floor" class="w-full h-[480px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#051424] via-transparent to-transparent"></div>
+
+            <!-- Overlay Spec Cards -->
+            <div class="absolute bottom-6 left-6 right-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="glass-panel p-4 rounded-xl border border-white/10 flex items-center gap-4">
+                <span class="material-symbols-outlined text-3xl text-[#C3F400]">fitness_center</span>
+                <div>
+                  <h4 class="font-bebas text-xl text-white">16 OLYMPIC PLATFORMS</h4>
+                  <p class="text-xs text-[#94A3B8]">Full rubber drop zones</p>
+                </div>
+              </div>
+
+              <div class="glass-panel p-4 rounded-xl border border-white/10 flex items-center gap-4">
+                <span class="material-symbols-outlined text-3xl text-[#00EEFC]">thermostat</span>
+                <div>
+                  <h4 class="font-bebas text-xl text-white">CONTRAST SUITE</h4>
+                  <p class="text-xs text-[#94A3B8]">Sauna & Cold Plunges</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. TRAINING MODALITIES (3x2 GRID) -->
+  <section id="modalities" class="py-24 bg-[#0d1c2d] border-y border-white/5">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#C3F400] bg-[#C3F400]/10 px-3.5 py-1.5 rounded-full border border-[#C3F400]/20">
+          TRAINING DISCIPLINES
+        </span>
+        <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">PRECISION MODALITIES</h2>
+        <p class="text-[#94A3B8] text-base">Engineered training tracks tailored for hyper-specific physical outcomes.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="modality-card bg-[#122131] p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-[#0d1c2d] border border-white/10 flex items-center justify-center text-[#C3F400]">
+              <span class="material-symbols-outlined text-2xl">fitness_center</span>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#C3F400]">POWER & STRENGTH</span>
+            <h3 class="font-bebas text-3xl text-white tracking-wide">POWERLIFTING</h3>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">Squat, Bench, and Deadlift programming guided by competitive lifters. Periodized progressive overload.</p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-bold text-white">
+            <span>SPEC: HEAVY COMPOUND</span>
+            <span class="material-symbols-outlined text-[#C3F400]">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="modality-card bg-[#122131] p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-[#0d1c2d] border border-white/10 flex items-center justify-center text-[#00EEFC]">
+              <span class="material-symbols-outlined text-2xl">vital_signs</span>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#00EEFC]">METABOLIC ENGINE</span>
+            <h3 class="font-bebas text-3xl text-white tracking-wide">HIIT & ZONE 5 METCON</h3>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">Heart-rate tracked high-intensity intervals designed to maximize VO2 max and caloric afterburn.</p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-bold text-white">
+            <span>SPEC: ZONE 4 & 5 BURNOUT</span>
+            <span class="material-symbols-outlined text-[#00EEFC]">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="modality-card bg-[#122131] p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-[#0d1c2d] border border-white/10 flex items-center justify-center text-[#C3F400]">
+              <span class="material-symbols-outlined text-2xl">sports_gymnastics</span>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#C3F400]">HYBRID FITNESS</span>
+            <h3 class="font-bebas text-3xl text-white tracking-wide">CROSSFIT & FUNCTIONAL</h3>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">High-volume gymnastic pull-ups, barbell cycles, and plyometrics engineered for operational endurance.</p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-bold text-white">
+            <span>SPEC: FUNCTIONAL WAVES</span>
+            <span class="material-symbols-outlined text-[#C3F400]">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="modality-card bg-[#122131] p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-[#0d1c2d] border border-white/10 flex items-center justify-center text-[#00EEFC]">
+              <span class="material-symbols-outlined text-2xl">spa</span>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#00EEFC]">REGENERATION</span>
+            <h3 class="font-bebas text-3xl text-white tracking-wide">RECOVERY & YOGA</h3>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">Targeted mobility drills, myofascial release, and breathwork to unlock athletic range of motion.</p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-bold text-white">
+            <span>SPEC: MOBILITY & FLOW</span>
+            <span class="material-symbols-outlined text-[#00EEFC]">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="modality-card bg-[#122131] p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-[#0d1c2d] border border-white/10 flex items-center justify-center text-[#FF3366]">
+              <span class="material-symbols-outlined text-2xl">sports_mma</span>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#FF3366]">STRIKING & AGILITY</span>
+            <h3 class="font-bebas text-3xl text-white tracking-wide">RHYTHM BOXING & STRIKE</h3>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">Heavy bag work, mitt combos, and footwork drills combined into a pulse-pounding cardio output.</p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-bold text-white">
+            <span>SPEC: COMBAT CONDITIONING</span>
+            <span class="material-symbols-outlined text-[#FF3366]">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="modality-card bg-[#122131] p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-[#0d1c2d] border border-white/10 flex items-center justify-center text-[#C3F400]">
+              <span class="material-symbols-outlined text-2xl">person_filled</span>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#C3F400]">CUSTOM HYPERTROPHY</span>
+            <h3 class="font-bebas text-3xl text-white tracking-wide">1-ON-1 ELITE COACHING</h3>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">Bespoke strength programming, continuous video analysis, and custom nutrition protocols.</p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-bold text-white">
+            <span>SPEC: PRIVATE CONSULTATION</span>
+            <span class="material-symbols-outlined text-[#C3F400]">arrow_forward</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. THE PULSE DIFFERENCE -->
+  <section class="py-24 bg-[#051424]">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#00EEFC] bg-[#00EEFC]/10 px-3.5 py-1.5 rounded-full border border-[#00EEFC]/20">
+          THE IRONPULSE ADVANTAGE
+        </span>
+        <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">WHY SERIOUS ATHLETES CHOOSE US</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+          <span class="material-symbols-outlined text-3xl text-[#C3F400] p-3 rounded-xl bg-[#0d1c2d]">fingerprint</span>
+          <div>
+            <h4 class="font-bebas text-2xl text-white">24/7 BIOMETRIC ENTRY</h4>
+            <p class="text-[#94A3B8] text-sm mt-1">Facial recognition access. Train anytime, day or night, with full facility access.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+          <span class="material-symbols-outlined text-3xl text-[#C3F400] p-3 rounded-xl bg-[#0d1c2d]">badge</span>
+          <div>
+            <h4 class="font-bebas text-2xl text-white">100% CSCS CERTIFIED STAFF</h4>
+            <p class="text-[#94A3B8] text-sm mt-1">No weekend-certified trainers. Every coach holds a degree in Exercise Science.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+          <span class="material-symbols-outlined text-3xl text-[#C3F400] p-3 rounded-xl bg-[#0d1c2d]">hardware</span>
+          <div>
+            <h4 class="font-bebas text-2xl text-white">ELEIKO & HAMMER STRENGTH</h4>
+            <p class="text-[#94A3B8] text-sm mt-1">Full suite of calibrated powerlifting plates, competition bars, and custom racks.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+          <span class="material-symbols-outlined text-3xl text-[#00EEFC] p-3 rounded-xl bg-[#0d1c2d]">ac_unit</span>
+          <div>
+            <h4 class="font-bebas text-2xl text-white">CONTRAST RECOVERY SUITE</h4>
+            <p class="text-[#94A3B8] text-sm mt-1">Dual 38°F cold plunges and 190°F dry cedar sauna for optimal recovery.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+          <span class="material-symbols-outlined text-3xl text-[#00EEFC] p-3 rounded-xl bg-[#0d1c2d]">monitoring</span>
+          <div>
+            <h4 class="font-bebas text-2xl text-white">NUTRITIONAL TELEMETRY</h4>
+            <p class="text-[#94A3B8] text-sm mt-1">Quarterly InBody 570 body composition scans and DEXA macro mapping.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+          <span class="material-symbols-outlined text-3xl text-[#C3F400] p-3 rounded-xl bg-[#0d1c2d]">groups</span>
+          <div>
+            <h4 class="font-bebas text-2xl text-white">AUSTIN POWERLIFTING TRIBE</h4>
+            <p class="text-[#94A3B8] text-sm mt-1">An elite, supportive community of high-output athletes pushing each other to PRs.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FACULTY OF STRENGTH (COACHES) -->
+  <section id="coaches" class="py-24 bg-[#0d1c2d] border-t border-white/5">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#C3F400] bg-[#C3F400]/10 px-3.5 py-1.5 rounded-full border border-[#C3F400]/20">
+          WORLD-CLASS LEADERSHIP
+        </span>
+        <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">FACULTY OF STRENGTH</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Coach 1 -->
+        <div class="bg-[#122131] rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="h-80 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=800&auto=format&fit=crop" alt="Marcus Sterling" class="w-full h-full object-cover">
+              <div class="absolute bottom-4 left-4 bg-[#051424]/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#C3F400] border border-[#C3F400]/30 uppercase">
+                HEAD OF S&C
+              </div>
+            </div>
+            <div class="p-6 space-y-3">
+              <h3 class="font-bebas text-3xl text-white">MARCUS "VANCE" STERLING</h3>
+              <p class="text-xs font-bold text-[#00EEFC] uppercase tracking-wider">CSCS, USAW Level 2, M.S. Kinesiology</p>
+              <p class="text-[#94A3B8] text-sm leading-relaxed">Former D1 strength coach specializing in maximal power output and biomechanical efficiency.</p>
+              <p class="text-xs font-bold text-[#D4E4FA] opacity-70">@vance_ironpulse</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="#contact" class="w-full py-3 bg-[#1c2b3c] hover:bg-[#C3F400] hover:text-[#161E00] text-white font-bold text-xs uppercase tracking-wider rounded-lg text-center block transition-all">
+              Book 1-on-1 Consultation
+            </a>
+          </div>
+        </div>
+
+        <!-- Coach 2 -->
+        <div class="bg-[#122131] rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="h-80 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=800&auto=format&fit=crop" alt="Elena Rostova" class="w-full h-full object-cover">
+              <div class="absolute bottom-4 left-4 bg-[#051424]/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#00EEFC] border border-[#00EEFC]/30 uppercase">
+                LEAD METCON COACH
+              </div>
+            </div>
+            <div class="p-6 space-y-3">
+              <h3 class="font-bebas text-3xl text-white">ELENA ROSTOVA</h3>
+              <p class="text-xs font-bold text-[#00EEFC] uppercase tracking-wider">CSCS, CrossFit L3, EXOS Specialist</p>
+              <p class="text-[#94A3B8] text-sm leading-relaxed">Metabolic engine developer focused on Zone 5 aerobic threshold expansion and recovery techniques.</p>
+              <p class="text-xs font-bold text-[#D4E4FA] opacity-70">@elena_rostova_atx</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="#contact" class="w-full py-3 bg-[#1c2b3c] hover:bg-[#C3F400] hover:text-[#161E00] text-white font-bold text-xs uppercase tracking-wider rounded-lg text-center block transition-all">
+              Book 1-on-1 Consultation
+            </a>
+          </div>
+        </div>
+
+        <!-- Coach 3 -->
+        <div class="bg-[#122131] rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="h-80 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Jaxson Cole" class="w-full h-full object-cover">
+              <div class="absolute bottom-4 left-4 bg-[#051424]/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#FF3366] border border-[#FF3366]/30 uppercase">
+                COMBAT & AGILITY
+              </div>
+            </div>
+            <div class="p-6 space-y-3">
+              <h3 class="font-bebas text-3xl text-white">JAXSON "APEX" COLE</h3>
+              <p class="text-xs font-bold text-[#00EEFC] uppercase tracking-wider">Golden Gloves Champ, BJJ Black Belt</p>
+              <p class="text-[#94A3B8] text-sm leading-relaxed">Striking specialist training rotational torque, footwork speed, and high-intensity fight cardio.</p>
+              <p class="text-xs font-bold text-[#D4E4FA] opacity-70">@apex_cole</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="#contact" class="w-full py-3 bg-[#1c2b3c] hover:bg-[#C3F400] hover:text-[#161E00] text-white font-bold text-xs uppercase tracking-wider rounded-lg text-center block transition-all">
+              Book 1-on-1 Consultation
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MEMBERSHIP PRICING -->
+  <section id="pricing" class="py-24 bg-[#051424]">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#C3F400] bg-[#C3F400]/10 px-3.5 py-1.5 rounded-full border border-[#C3F400]/20">
+          NO LOCK-IN CONTRACTS
+        </span>
+        <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">MEMBERSHIP TIERS</h2>
+        
+        <!-- Toggle Switcher -->
+        <div class="flex items-center justify-center gap-4 pt-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">Monthly</span>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="pricing-toggle" class="sr-only peer">
+            <div class="w-14 h-7 bg-[#122131] border border-white/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-[#C3F400] after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-[#1c2b3c]"></div>
+          </label>
+          <span class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
+            Yearly
+            <span class="text-[10px] bg-[#C3F400] text-[#161E00] font-black px-2 py-0.5 rounded-full">SAVE 20%</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Card 1: Basic -->
+        <div class="bg-[#122131] rounded-2xl border border-white/10 p-8 flex flex-col justify-between">
+          <div class="space-y-6">
+            <h3 class="font-bebas text-3xl text-white tracking-wide">IRON BASIC</h3>
+            <div class="flex items-baseline gap-2">
+              <span id="price-basic" class="font-bebas text-6xl text-white">$59</span>
+              <span class="price-period text-xs font-bold text-[#94A3B8]">/month</span>
+            </div>
+            <p class="text-xs text-[#94A3B8]">Full floor access for independent lifters who want high-grade machinery.</p>
+            
+            <ul class="space-y-3 pt-4 border-t border-white/5 text-xs text-[#D4E4FA]">
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>Open Strength Floor Access (05:00 - 23:00)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>Eleiko Powerlifting Platforms</span>
+              </li>
+              <li class="flex items-center gap-3 text-[#94A3B8] opacity-50">
+                <span class="material-symbols-outlined text-[#FF3366] text-base">close</span>
+                <span>Contrast Recovery Cold Plunges</span>
+              </li>
+              <li class="flex items-center gap-3 text-[#94A3B8] opacity-50">
+                <span class="material-symbols-outlined text-[#FF3366] text-base">close</span>
+                <span>Unlimited MetCon & Boxing Classes</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="#contact" class="mt-8 w-full py-4 rounded-lg border border-white/20 text-white font-bold text-xs uppercase tracking-wider text-center hover:border-[#C3F400] hover:text-[#C3F400] transition-all">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Card 2: Pro (Highlighted) -->
+        <div class="bg-[#122131] rounded-2xl border-2 border-[#C3F400] p-8 flex flex-col justify-between relative pro-card-glow transform lg:-translate-y-2">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#C3F400] text-[#161E00] font-black text-[10px] uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+            MOST POPULAR • ATHLETE CHOICE
+          </div>
+
+          <div class="space-y-6">
+            <h3 class="font-bebas text-3xl text-[#C3F400] tracking-wide">IRON PRO</h3>
+            <div class="flex items-baseline gap-2">
+              <span id="price-pro" class="font-bebas text-6xl text-white">$99</span>
+              <span class="price-period text-xs font-bold text-[#94A3B8]">/month</span>
+            </div>
+            <p class="text-xs text-[#94A3B8]">Complete performance suite for serious athletes wanting unlimited access.</p>
+            
+            <ul class="space-y-3 pt-4 border-t border-white/5 text-xs text-white">
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span class="font-bold">24/7 Biometric Door Access</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>Unlimited MetCon, Boxing & Powerlifting Classes</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>Unlimited Cold Plunge & Cedar Sauna Access</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>2 Monthly 1-on-1 PT Sessions</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>InBody 570 Composition Scan</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="#contact" class="mt-8 w-full py-4 rounded-lg bg-[#C3F400] text-[#161E00] font-black text-xs uppercase tracking-wider text-center btn-primary-glow">
+            Start 7-Day Trial
+          </a>
+        </div>
+
+        <!-- Card 3: VIP -->
+        <div class="bg-[#122131] rounded-2xl border border-white/10 p-8 flex flex-col justify-between">
+          <div class="space-y-6">
+            <h3 class="font-bebas text-3xl text-white tracking-wide">ELITE VIP</h3>
+            <div class="flex items-baseline gap-2">
+              <span id="price-vip" class="font-bebas text-6xl text-white">$159</span>
+              <span class="price-period text-xs font-bold text-[#94A3B8]">/month</span>
+            </div>
+            <p class="text-xs text-[#94A3B8]">Full white-glove coaching service with personal nutrition telemetry.</p>
+            
+            <ul class="space-y-3 pt-4 border-t border-white/5 text-xs text-[#D4E4FA]">
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>Everything included in Iron Pro Tiers</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>Weekly Head Coach Check-ins & Program Adjustments</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>Custom DEXA Scan Macro Nutrition Plan</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">check</span>
+                <span>IronPulse Official Athlete Gear Kit</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="#contact" class="mt-8 w-full py-4 rounded-lg border border-white/20 text-white font-bold text-xs uppercase tracking-wider text-center hover:border-[#C3F400] hover:text-[#C3F400] transition-all">
+            Apply For VIP
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. WEEKLY CLASS SCHEDULE -->
+  <section id="schedule" class="py-24 bg-[#0d1c2d] border-t border-white/5">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#00EEFC] bg-[#00EEFC]/10 px-3.5 py-1.5 rounded-full border border-[#00EEFC]/20">
+          LIVE ATX CALENDAR
+        </span>
+        <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">WEEKLY CLASS SCHEDULE</h2>
+        <p class="text-[#94A3B8] text-sm">Select a day to view upcoming high-intensity group sessions.</p>
+      </div>
+
+      <!-- Day Filter Pills -->
+      <div class="flex items-center justify-center gap-2 flex-wrap mb-10">
+        <button data-day="mon" class="schedule-pill px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#C3F400] text-[#161E00] transition-all">Mon</button>
+        <button data-day="tue" class="schedule-pill px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#122131] text-[#D4E4FA] hover:bg-[#1c2b3c] transition-all">Tue</button>
+        <button data-day="wed" class="schedule-pill px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#122131] text-[#D4E4FA] hover:bg-[#1c2b3c] transition-all">Wed</button>
+        <button data-day="thu" class="schedule-pill px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#122131] text-[#D4E4FA] hover:bg-[#1c2b3c] transition-all">Thu</button>
+        <button data-day="fri" class="schedule-pill px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#122131] text-[#D4E4FA] hover:bg-[#1c2b3c] transition-all">Fri</button>
+        <button data-day="sat" class="schedule-pill px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#122131] text-[#D4E4FA] hover:bg-[#1c2b3c] transition-all">Sat</button>
+        <button data-day="sun" class="schedule-pill px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#122131] text-[#D4E4FA] hover:bg-[#1c2b3c] transition-all">Sun</button>
+      </div>
+
+      <!-- Schedule Dynamic Container -->
+      <div id="schedule-rows" class="space-y-4">
+        <!-- Rendered by JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. ATHLETE TRANSFORMATIONS -->
+  <section class="py-24 bg-[#051424] relative overflow-hidden">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      <div class="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-1 text-[#C3F400]">
+            <span class="material-symbols-outlined text-2xl">star</span>
+            <span class="material-symbols-outlined text-2xl">star</span>
+            <span class="material-symbols-outlined text-2xl">star</span>
+            <span class="material-symbols-outlined text-2xl">star</span>
+            <span class="material-symbols-outlined text-2xl">star</span>
+          </div>
+
+          <h3 class="font-bebas text-3xl sm:text-5xl text-white tracking-wide leading-tight">
+            "I LOST 28 LBS OF BODY FAT AND SMASHED MY LIFETIME STRENGTH PLATEAU IN 5 MONTHS."
+          </h3>
+
+          <div class="space-y-1">
+            <p class="font-bold text-white text-base">Trenton Reynolds</p>
+            <p class="text-xs text-[#94A3B8]">Tech Executive • Iron Pro Member (2 Years)</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="rounded-2xl overflow-hidden border border-white/10 relative">
+            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop" alt="Athlete Transformation" class="w-full h-80 object-cover">
+            
+            <!-- Floating Stat Chips -->
+            <div class="absolute top-4 left-4 bg-[#051424]/90 backdrop-blur border border-[#FF3366]/40 px-3 py-1.5 rounded-lg text-xs font-bold text-[#FF3366]">
+              -28 LBS FAT MASS
+            </div>
+
+            <div class="absolute bottom-16 right-4 bg-[#051424]/90 backdrop-blur border border-[#C3F400]/40 px-3 py-1.5 rounded-lg text-xs font-bold text-[#C3F400]">
+              +14 LBS LEAN MUSCLE
+            </div>
+
+            <div class="absolute bottom-4 left-4 bg-[#051424]/90 backdrop-blur border border-[#00EEFC]/40 px-3 py-1.5 rounded-lg text-xs font-bold text-[#00EEFC]">
+              +120 LBS DEADLIFT PR
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. INTERACTIVE BMI & TRAINING CALCULATOR -->
+  <section id="calculator" class="py-24 bg-[#0d1c2d] border-t border-white/5">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#C3F400] bg-[#C3F400]/10 px-3.5 py-1.5 rounded-full border border-[#C3F400]/20">
+          BIOMETRIC METRICS
+        </span>
+        <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">BMI & TRAINING CALCULATOR</h2>
+        <p class="text-[#94A3B8] text-sm">Calculate your baseline metrics and receive a targeted IronPulse training recommendation.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto glass-panel p-8 md:p-10 rounded-3xl border border-white/10">
+        <form id="bmi-form" class="space-y-6">
+          
+          <!-- System Switcher -->
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <span class="text-xs font-bold uppercase tracking-wider text-white">Measurement Unit</span>
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-bold text-[#94A3B8]">Imperial</span>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="unit-switcher" class="sr-only peer">
+                <div class="w-11 h-6 bg-[#0d1c2d] border border-white/20 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-[#00EEFC] after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+              </label>
+              <span class="text-xs font-bold text-white">Metric</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label id="height-unit-label" class="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">HEIGHT (INCHES)</label>
+              <input type="number" id="calc-height" required placeholder="71" class="w-full bg-[#0d1c2d] border border-white/15 rounded-xl px-4 py-3.5 text-white focus:border-[#C3F400] focus:outline-none transition-all">
+            </div>
+
+            <div class="space-y-2">
+              <label id="weight-unit-label" class="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">WEIGHT (LBS)</label>
+              <input type="number" id="calc-weight" required placeholder="175" class="w-full bg-[#0d1c2d] border border-white/15 rounded-xl px-4 py-3.5 text-white focus:border-[#C3F400] focus:outline-none transition-all">
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-[#C3F400] text-[#161E00] font-black text-xs uppercase tracking-wider rounded-xl btn-primary-glow">
+            Calculate BMI & Target Metrics
+          </button>
+        </form>
+
+        <!-- Result Card -->
+        <div id="bmi-result-card" class="hidden mt-8 pt-8 border-t border-white/10 space-y-6">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-6 bg-[#0d1c2d] p-6 rounded-2xl border border-white/5">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-[#94A3B8]">Your BMI Score</p>
+              <p id="res-score" class="font-bebas text-6xl text-[#00EEFC]">24.2</p>
+            </div>
+            <div class="text-center sm:text-right">
+              <span id="res-category" class="inline-block px-3 py-1 rounded-full bg-[#C3F400]/10 border border-[#C3F400]/30 text-[#C3F400] font-bold text-xs uppercase mb-2">Optimal Athletic Range</span>
+              <p class="text-xs text-[#94A3B8]">Target Prescription Active</p>
+            </div>
+          </div>
+
+          <!-- Linear Gauge Indicator -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-[10px] font-bold text-[#94A3B8] uppercase">
+              <span>Underweight</span>
+              <span>Optimal</span>
+              <span>Overweight</span>
+              <span>High Density</span>
+            </div>
+            <div class="w-full h-3 bg-[#0d1c2d] rounded-full overflow-hidden p-0.5 border border-white/10">
+              <div id="meter-bar" class="h-full bg-gradient-to-r from-[#00EEFC] to-[#C3F400] rounded-full transition-all duration-500" style="width: 50%;"></div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#1c2b3c] border border-white/10 space-y-2">
+            <h4 class="font-bebas text-2xl text-white">RECOMMENDED TRAIN TRACK: <span id="res-track" class="text-[#C3F400]">Peak MetCon Fusion</span></h4>
+            <p id="res-desc" class="text-sm text-[#D4E4FA]/80">Your metrics indicate strong adaptation potential for combined metabolic and strength work.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ ACCORDION -->
+  <section class="py-24 bg-[#051424]">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#00EEFC] bg-[#00EEFC]/10 px-3.5 py-1.5 rounded-full border border-[#00EEFC]/20">
+          CLEAR ANSWERS
+        </span>
+        <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">FREQUENTLY ASKED QUESTIONS</h2>
+      </div>
+
+      <div id="faq-container" class="max-w-3xl mx-auto space-y-4">
+        <!-- Rendered by JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. JOIN THE SQUADRON / CONTACT -->
+  <section id="contact" class="py-24 bg-[#0d1c2d] border-t border-white/5">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: Form (7 cols) -->
+        <div class="lg:col-span-7 space-y-8">
+          <div class="space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C3F400] bg-[#C3F400]/10 px-3.5 py-1.5 rounded-full border border-[#C3F400]/20">
+              CLAIM YOUR SPOT
+            </span>
+            <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">JOIN THE SQUADRON</h2>
+            <p class="text-[#94A3B8] text-sm">Fill out the brief form below to lock in your 7-Day Free Trial pass.</p>
+          </div>
+
+          <form id="squadron-form" class="space-y-5">
+            <div id="form-response" class="hidden"></div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">FULL NAME *</label>
+                <input type="text" id="lead-name" required placeholder="Alex Mercer" class="w-full bg-[#122131] border border-white/15 rounded-xl px-4 py-3.5 text-white focus:border-[#C3F400] focus:outline-none transition-all">
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">EMAIL ADDRESS *</label>
+                <input type="email" id="lead-email" required placeholder="alex@austin.com" class="w-full bg-[#122131] border border-white/15 rounded-xl px-4 py-3.5 text-white focus:border-[#C3F400] focus:outline-none transition-all">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">PHONE NUMBER</label>
+                <input type="tel" id="lead-phone" placeholder="(512) 555-0199" class="w-full bg-[#122131] border border-white/15 rounded-xl px-4 py-3.5 text-white focus:border-[#C3F400] focus:outline-none transition-all">
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">PRIMARY GOAL</label>
+                <select id="lead-goal" class="w-full bg-[#122131] border border-white/15 rounded-xl px-4 py-3.5 text-white focus:border-[#C3F400] focus:outline-none transition-all">
+                  <option value="Powerlifting & Maximal Strength">Powerlifting & Maximal Strength</option>
+                  <option value="Metabolic Conditioning (Fat Loss)">Metabolic Conditioning (Fat Loss)</option>
+                  <option value="Contrast Recovery & Longevity">Contrast Recovery & Longevity</option>
+                  <option value="1-on-1 Elite Personal Coaching">1-on-1 Elite Personal Coaching</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <input type="checkbox" id="lead-consent" class="custom-checkbox" checked>
+              <label for="lead-consent" class="text-xs text-[#94A3B8] cursor-pointer">
+                I agree to receive SMS & email updates for trial scheduling.
+              </label>
+            </div>
+
+            <button type="submit" class="w-full py-4 bg-[#C3F400] text-[#161E00] font-black text-xs uppercase tracking-wider rounded-xl btn-primary-glow flex items-center justify-center gap-2">
+              <span>Submit Application & Access Trial</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Austin Location Card (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-[#122131] rounded-2xl border border-white/10 p-8 space-y-6">
+            <h3 class="font-bebas text-3xl text-white">DOWNTOWN ATX HEADQUARTERS</h3>
+
+            <!-- Dark Map Placeholder UI -->
+            <div class="h-48 rounded-xl bg-[#051424] border border-white/10 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#C3F400_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div class="relative z-10 text-center space-y-2">
+                <span class="material-symbols-outlined text-4xl text-[#FF3366] animate-bounce">location_on</span>
+                <p class="text-xs font-bold uppercase tracking-wider text-white">401 Congress Ave, Austin, TX 78701</p>
+              </div>
+            </div>
+
+            <div class="space-y-4 text-xs text-[#D4E4FA]">
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">map</span>
+                <div>
+                  <p class="font-bold text-white">LOCATION</p>
+                  <p class="text-[#94A3B8]">401 Congress Ave, Suite 100, Downtown Austin</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-[#00EEFC] text-base">schedule</span>
+                <div>
+                  <p class="font-bold text-white">HOURS</p>
+                  <p class="text-[#94A3B8]">Staffed: Mon-Fri 05:00 - 22:00 | Sat-Sun 07:00 - 20:00</p>
+                  <p class="text-[#C3F400] font-bold">24/7 Access for Pro & VIP Members</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-[#C3F400] text-base">call</span>
+                <div>
+                  <p class="font-bold text-white">PHONE</p>
+                  <p class="text-[#94A3B8]">(512) 884-PULSE</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#051424] border-t border-white/10 py-16 text-xs text-[#94A3B8]">
+    <div class="max-w-[1360px] mx-auto px-5 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+      
+      <div class="space-y-4">
+        <a href="#hero" class="flex items-center gap-3">
+          <span class="w-2 bg-[#C3F400] h-6 skew-x-[-18deg]"></span>
+          <span class="font-bebas text-3xl text-white tracking-wider">IRONPULSE</span>
+        </a>
+        <p class="text-[#94A3B8] leading-relaxed">
+          Elite strength & conditioning gym engineered for peak athletic outcomes in downtown Austin, Texas.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <p class="font-bold uppercase tracking-wider text-white">NAVIGATION</p>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-[#C3F400]">Facility Spec</a></li>
+          <li><a href="#modalities" class="hover:text-[#C3F400]">Training Programs</a></li>
+          <li><a href="#coaches" class="hover:text-[#C3F400]">CSCS Coaches</a></li>
+          <li><a href="#schedule" class="hover:text-[#C3F400]">Weekly Class Calendar</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <p class="font-bold uppercase tracking-wider text-white">RECOVERY & METRICS</p>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-[#00EEFC]">Contrast Plunge Suite</a></li>
+          <li><a href="#calculator" class="hover:text-[#00EEFC]">Interactive BMI Tool</a></li>
+          <li><a href="#pricing" class="hover:text-[#00EEFC]">InBody Telemetry</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <p class="font-bold uppercase tracking-wider text-white">CONNECT WITH THE TRIBE</p>
+        <div class="flex gap-3 text-white">
+          <a href="#" class="w-9 h-9 rounded-full bg-[#122131] border border-white/10 flex items-center justify-center hover:border-[#C3F400] hover:text-[#C3F400]">
+            <span class="material-symbols-outlined text-sm">share</span>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-full bg-[#122131] border border-white/10 flex items-center justify-center hover:border-[#C3F400] hover:text-[#C3F400]">
+            <span class="material-symbols-outlined text-sm">photo_camera</span>
+          </a>
+        </div>
+        <p class="pt-2">© 2026 IRONPULSE ATX LLC. All Rights Reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Static Datasets and Main JavaScript -->
+  <script src="/js/data.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
